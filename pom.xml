@@ -9,54 +9,83 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Single source of truth for all versions -->
+        <spring.version>6.1.14</spring.version>
+        <spring.boot.version>3.2.10</spring.boot.version>
+        <spring.kafka.version>3.1.10</spring.kafka.version>
+        <cucumber.version>7.15.0</cucumber.version>
+        <testng.version>7.8.0</testng.version>
     </properties>
 
     <dependencies>
+
+        <!-- ── Cucumber ─────────────────────────────────────────────────── -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.29.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.33.0</version>
-            <scope>test</scope>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>7.29.0</version>
-            <scope>compile</scope>
+            <version>${cucumber.version}</version>
         </dependency>
-        <!--Spring Support  -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
-            <version>7.29.0</version>
-            <scope>compile</scope>
+            <version>${cucumber.version}</version>
         </dependency>
+
+        <!-- ── TestNG ───────────────────────────────────────────────────── -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ── Spring ───────────────────────────────────────────────────── -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>7.0.0-M9</version>
-            <scope>compile</scope>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>7.0.3</version>
+            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>3.5.9</version>
-            <scope>compile</scope>
+            <version>${spring.boot.version}</version>
         </dependency>
+
+        <!-- ── Spring Kafka ─────────────────────────────────────────────── -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring.kafka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <version>${spring.kafka.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ── Logging (required by Spring) ────────────────────────────── -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+
     </dependencies>
 
 </project>
